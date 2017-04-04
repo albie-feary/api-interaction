@@ -8,7 +8,6 @@ var maoriWordContainer = document.getElementById("maoriWordContainer");
     btn.addEventListener("click", translateWord);
 
     function translateWord() {
-        //  alert(englishWord.value)
 
         var englishWord = document.getElementById("englishWord");
         var ourRequest = new XMLHttpRequest();
@@ -16,13 +15,13 @@ var maoriWordContainer = document.getElementById("maoriWordContainer");
         ourRequest.open('GET', 'https://eda-te-reo.herokuapp.com/api/translate?word=' + englishWord.value);
         ourRequest.onload = function() {
           var maoriWord = (ourRequest.responseText);
-            console.log(maoriWord);
             renderHTML(maoriWord);
 
         };
         ourRequest.send();
 
 function renderHTML(data){
+  document.getElementById("maoriWordContainer").innerHTML="";
   maoriWordContainer.insertAdjacentHTML('beforeend', data);
 
 
