@@ -1,7 +1,8 @@
+
 document.addEventListener('DOMContentLoaded', startGame)
 
 function startGame() {
-
+var maoriWordContainer = document.getElementById("maoriWordContainer");
     var btn = document.getElementById("btn");
 
     btn.addEventListener("click", translateWord);
@@ -14,11 +15,18 @@ function startGame() {
 
         ourRequest.open('GET', 'https://eda-te-reo.herokuapp.com/api/translate?word=' + englishWord.value);
         ourRequest.onload = function() {
-            console.log(ourRequest.responseText);
+          var maoriWord = (ourRequest.responseText);
+            console.log(maoriWord);
+            renderHTML(maoriWord);
+
         };
         ourRequest.send();
 
-    }
+function renderHTML(data){
+  maoriWordContainer.insertAdjacentHTML('beforeend', data);
 
+
+}
+    }
 
 }
