@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
       button.addEventListener("click", translateWord);
 
       function translateWord() {
-          const ourRequest = new XMLHttpRequest();
+          const request = new XMLHttpRequest();
 
-          ourRequest.open('GET', 'https://eda-te-reo.herokuapp.com/api/translate?word=' + englishWord.value);
-          ourRequest.onload = () => {
-              maoriWordContainer.innerHTML = ourRequest.responseText;
+          request.open('GET', 'https://eda-te-reo.herokuapp.com/api/translate?word=' + englishWord.value);
+          request.onload = () => {
+              maoriWordContainer.innerHTML = request.responseText;
           };
-          ourRequest.send();
+          request.send();
       }
 });
