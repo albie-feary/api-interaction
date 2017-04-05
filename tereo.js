@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 function startGame() {
     var maoriWordContainer = document.getElementById("maoriWordContainer");
-    var btn = document.getElementById("btn");
+    var button = document.getElementById("button");
 
-    btn.addEventListener("click", translateWord);
+    button.addEventListener("click", translateWord);
 
     function translateWord() {
 
